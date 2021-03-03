@@ -1,0 +1,57 @@
+<div class="container">
+    <form (ngSubmit)="onSubmit(formDirective)" [formGroup]="form" #formDirective="ngForm"> <!--El formDirective es para que se reseteen los valores al submitear-->
+
+        <mat-form-field class="sub-container">
+            <mat-label>Model name</mat-label>
+            <input type="text" matInput formControlName="modelName" placeholder="Air Max">
+            <mat-error *ngIf="modelNameField.hasError('required')">
+              Model name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        
+        <mat-form-field class="sub-container">
+            <mat-label>Author</mat-label>
+            <input type="text" matInput formControlName="author" placeholder="Nike">
+            <mat-error *ngIf="authorField.hasError('required')">
+              Author name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        
+        <mat-checkbox formControlName="specialEdition" class="sub-container" [(ngModel)]="specialEdition">Special Edition</mat-checkbox>
+        
+        <mat-form-field appearance="fill" class="sub-container">
+            <mat-label>Price</mat-label>
+            <input matInput type="number" formControlName="price">
+            <span matSuffix>€&nbsp;</span>
+            <mat-error *ngIf="authorField.hasError('required')">
+                Price is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        
+        <mat-form-field class="sub-container">
+            <mat-label>Creation Date</mat-label>
+            <input type="date" matInput formControlName="creationDate">
+            <mat-error *ngIf="creationDateField.hasError('nameValidator') && creationDateField.touched">
+              Please enter a valid artist collaborator name
+            </mat-error>
+            <mat-error *ngIf="creationDateField.hasError('required') && creationDateField.touched">
+              Date name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        
+        <mat-form-field class="sub-container">
+            <mat-label>Artist Collaborator</mat-label>
+            <input type="text" matInput formControlName="artistCollaborator" placeholder="Travis Scott" [required]="specialEdition">
+            <mat-error *ngIf="artistCollaboratorField.hasError('required')">
+                Artist Collaborator name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <button mat-flat-button color="accent" [disabled]="form.invalid" class="sub-container-button">Submit</button>
+    </form>
+</div>
+<div *ngFor="let sneaker of sneakerList" class="sneakers">
+    <h3> {{ sneaker.modelName }}</h3>
+    <h3> {{ sneaker.author }} - {{ sneaker.price }} € - {{ sneaker.creationDate }}</h3>
+    <h3 *ngIf="sneaker.specialEdition"> Special Edition ft {{ sneaker.artistCollaborator }} </h3>
+</div>
