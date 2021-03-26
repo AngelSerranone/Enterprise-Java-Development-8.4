@@ -10,7 +10,7 @@ You are creating a sneaker brand application using Angular. Your application mus
 4. When a new sneaker is created you have to store it in a database and show it on a list page. Note: You can skip this step by adding it to a list below the form for simplicity. 
 5. You have to use material components in the design
 
-![](src\assets\images\captura1.png)
+![](.\src\assets\images\captura1.png)
 
 ![](src\assets\images\captura2.png)
 
