@@ -12,9 +12,9 @@ You are creating a sneaker brand application using Angular. Your application mus
 
 ![](./src/assets/images/captura1.png)
 
-![](src\assets\images\captura2.png)
+![](./src/assets/images/captura2.png)
 
-![](src\assets\images\captura3.png)
+![](./src/assets/images/captura3.png)
 
 
 
